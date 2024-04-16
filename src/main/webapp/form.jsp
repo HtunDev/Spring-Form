@@ -20,8 +20,49 @@
 <body>
 
 	<div class="container pt-4">
+
 		<h3>Spring Form</h3>
+
+		<sf:form modelAttribute="userInput">
+		
+		<sf:hidden path="id"/>
+
+			<div class="row">
+				<div class="col">
+					<sf:label path="name">Student Name</sf:label>
+					<sf:input path="name" type="text" cssClass="form-control" placeholder="Enter Student Name"/>
+				</div>
+				
+				<div class="col">
+					<sf:label path="phone">Student Phone Number</sf:label>
+					<sf:input path="phone" type="tel" cssClass="form-control" placeholder="Enter Student Phone Number"/>
+				</div>
+				
+				<div class="col">
+					<sf:label path="email">Student Email</sf:label>
+					<sf:input path="email" type="email" cssClass="form-control" placeholder="Enter Student Email"/>
+				</div>
+			</div>
+			
+			<div class="row mt-4">
+				<div class="col">
+					<sf:label path="password">Password</sf:label>
+					<sf:password path="password" cssClass="form-control" placeholder="Enter Password"/>
+				</div>
+				
+				<div class="col">
+					<sf:label path="course">Select Course</sf:label>
+				</div>
+				
+				<div class="col">
+					<sf:label path="email">Student Email</sf:label>
+				</div>
+			</div>
+
+
+		</sf:form>
+
 	</div>
-	
+
 </body>
 </html>
