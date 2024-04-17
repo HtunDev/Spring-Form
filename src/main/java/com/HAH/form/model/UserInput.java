@@ -2,6 +2,8 @@ package com.HAH.form.model;
 
 import java.time.LocalDate;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
 
 @Data
@@ -13,6 +15,7 @@ public class UserInput {
 	private String email;
 	private String password;
 	private String course;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate registrationDate;
 	private Gender gender;
 	private String[] foundation;

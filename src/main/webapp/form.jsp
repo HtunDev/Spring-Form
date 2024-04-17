@@ -109,6 +109,38 @@
 			</div>
 
 		</sf:form>
+		
+		<h3 class="mt-4 ">Data Lists</h3>
+		
+		<table class="table">
+		
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Name</th>
+					<th>Phone Number</th>
+					<th>Email</th>
+					<th>Registration Date</th>
+					<th>Gender</th>
+					<th>Remark</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<c:forEach var="d" items="${lists}">
+					<tr>
+						<td>${d.id}</td>
+						<td>${d.name}</td>
+						<td>${d.phone}</td>
+						<td>${d.email}</td>
+						<td>${d.registrationDate}</td>
+						<td>${d.gender}</td>
+						<td>${d.remark}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+			
+		</table>
 
 	</div>
 
