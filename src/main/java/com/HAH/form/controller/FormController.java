@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.HAH.form.model.Course;
-import com.HAH.form.model.UserInput;
-import com.HAH.form.model.UserInput.Gender;
+import com.HAH.form.model.dto.Course;
+import com.HAH.form.model.dto.UserInput;
+import com.HAH.form.model.dto.UserInput.Gender;
+import com.HAH.form.model.service.CourseRepo;
+import com.HAH.form.model.service.DataHolder;
 
 @Controller
 @RequestMapping("form")
