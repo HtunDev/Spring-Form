@@ -3,12 +3,17 @@ package com.HAH.form.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.convert.support.ConfigurableConversionService;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.DataBinder;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.HAH.form.converter.CourseSelectConverter;
 import com.HAH.form.model.dto.Course;
 import com.HAH.form.model.dto.UserInput;
 import com.HAH.form.model.dto.UserInput.Gender;
@@ -24,10 +29,23 @@ public class FormController {
 	
 	@Autowired
 	private CourseRepo courseRepo;
+	
+	@Autowired
+	private CourseSelectConverter converter;
 
 	@GetMapping
 	void index() {
-
+		
+	}
+	
+	@InitBinder
+	void initWebBinder(WebDataBinder binder) {
+		
+		if(binder.getConversionService() instanceof ConfigurableConversionService registry) {
+			registry.addConverter(converter);
+			System.out.println("Converter Registration");
+		}
+		
 	}
 	
 	@PostMapping

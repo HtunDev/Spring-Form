@@ -1,4 +1,4 @@
-package com.HAH.form.model.converter;
+package com.HAH.form.converter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
