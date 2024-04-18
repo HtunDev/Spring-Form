@@ -14,7 +14,7 @@ public class UserInput {
 	private String phone;
 	private String email;
 	private String password;
-	private String course;
+	private Course course;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate registrationDate;
 	private Gender gender;

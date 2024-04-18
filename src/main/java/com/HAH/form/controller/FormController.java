@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.HAH.form.model.Course;
 import com.HAH.form.model.UserInput;
 import com.HAH.form.model.UserInput.Gender;
 
@@ -17,6 +19,9 @@ public class FormController {
 	
 	@Autowired
 	private DataHolder dataHolder;
+	
+	@Autowired
+	private CourseRepo courseRepo;
 
 	@GetMapping
 	void index() {
@@ -33,16 +38,21 @@ public class FormController {
 	List<UserInput> getAllUserInputs(){
 		return dataHolder.getAllData();
 	}
+	
+	@ModelAttribute("courses")
+	List<Course> getCourses(){
+		return courseRepo.getCourses();
+	}
 
 	@ModelAttribute("userInput")
 	public UserInput getUserInput() {
 		return new UserInput();
 	}
 
-	@ModelAttribute("courses")
-	public List<String> getCourses() {
-		return List.of("Java Basic", "Spring Framework", "Angular", "React", "DevOps");
-	}
+//	@ModelAttribute("courses")
+//	public List<String> getCourses() {
+//		return List.of("Java Basic", "Spring Framework", "Angular", "React", "DevOps");
+//	}
 
 	@ModelAttribute("genders")
 	public Gender[] getGenders() {

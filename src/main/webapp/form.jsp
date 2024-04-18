@@ -66,7 +66,7 @@
 					<sf:label path="course">Select Course</sf:label>
 					<sf:select path="course" cssClass="form-select">
 						<sf:option value="">Select Course</sf:option>
-						<sf:options items="${courses}" ></sf:options>
+						<sf:options items="${courses}" itemValue="id" itemLabel="name"></sf:options>
 					</sf:select>
 				</div>
 				
