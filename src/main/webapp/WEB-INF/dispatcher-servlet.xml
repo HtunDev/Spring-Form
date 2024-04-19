@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc ="http://www.springframework.org/schema/mvc"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -10,12 +10,20 @@
 
 	<!-- bean definitions here -->
 	<mvc:annotation-driven></mvc:annotation-driven>
-	<context:component-scan base-package="com.HAH.form.mvc"></context:component-scan>
-	
-	<mvc:redirect-view-controller redirect-url="/form" path="/"/>
-	
+	<context:component-scan
+		base-package="com.HAH.form.mvc"></context:component-scan>
+
+	<mvc:redirect-view-controller
+		redirect-url="/form" path="/" />
+
 	<mvc:view-resolvers>
-		<mvc:jsp prefix="/" suffix=".jsp"/>
+		<mvc:jsp prefix="/" suffix=".jsp" />
 	</mvc:view-resolvers>
 
-</beans>
+	<mvc:interceptors>
+	
+			<bean id="validationInterceptor" class="com.HAH.form.mvc.interceptor.ValidationErrorsInterceptor"></bean>
+	
+	</mvc:interceptors>
+
+</beans>	

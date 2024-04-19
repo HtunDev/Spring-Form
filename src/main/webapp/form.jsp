@@ -35,13 +35,31 @@
 
 		<h3>Spring Form</h3>
 		
+		<c:if test="${ not empty allErrors }">
+		
+			<div class="alert alert-warning">
+				
+				<c:forEach var="errors" items="${allErrors }" varStatus="status">
+				
+					<span>${errors}</span>
+					
+					<c:if test="${ not empty status.last }">
+						<br />
+					</c:if>
+					
+				</c:forEach>
+				
+			</div>
+			
+		</c:if>
+		
 		<sf:form modelAttribute="userInput">
 		
-		<c:if test="${hasErrors}">Errors
+	<%-- 	<c:if test="${hasErrors}">Errors
 			<div class="alert alert-warning">
 				<sf:errors path="*"></sf:errors>
 			</div>
-		</c:if>
+		</c:if> --%>
 		
 		<sf:hidden path="id"/>
 

@@ -50,7 +50,7 @@ public class FormController {
 		
 		if(binder.getConversionService() instanceof ConfigurableConversionService registry) {
 			registry.addConverter(converter);
-			System.out.println("Converter Registration");
+//			System.out.println("Converter Registration");
 		}
 		
 		binder.addValidators(userInputValidator);
@@ -58,10 +58,10 @@ public class FormController {
 	}
 	
 	@PostMapping
-	String create(@Validated @ModelAttribute("userInput") UserInput userInput, BindingResult result,ModelMap model) {
+	String create(@Validated @ModelAttribute("userInput") UserInput userInput, BindingResult result) {
 		
 		if(result.hasErrors()) {
-			model.put("hasErrors", true);
+			
 			return "form";
 		}
 		dataHolder.add(userInput);
