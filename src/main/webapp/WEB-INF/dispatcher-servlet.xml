@@ -10,7 +10,7 @@
 
 	<!-- bean definitions here -->
 	<mvc:annotation-driven></mvc:annotation-driven>
-	<context:component-scan base-package="com.HAH.form.controller, com.HAH.form.converter"></context:component-scan>
+	<context:component-scan base-package="com.HAH.form.mvc"></context:component-scan>
 	
 	<mvc:redirect-view-controller redirect-url="/form" path="/"/>
 	

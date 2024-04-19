@@ -1,11 +1,11 @@
-package com.HAH.form.model.service;
+package com.HAH.form.root.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.ApplicationScope;
 
-import com.HAH.form.model.dto.Course;
+import com.HAH.form.root.dto.Course;
 
 @Service
 @ApplicationScope

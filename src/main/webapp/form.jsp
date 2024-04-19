@@ -43,16 +43,19 @@
 				<div class="col">
 					<sf:label path="name">Student Name</sf:label>
 					<sf:input path="name" type="text" cssClass="form-control" placeholder="Enter Student Name"/>
+					<sf:errors path="name" cssClass="text-danger"></sf:errors>
 				</div>
 				
 				<div class="col">
 					<sf:label path="phone">Student Phone Number</sf:label>
 					<sf:input path="phone" type="tel" cssClass="form-control" placeholder="Enter Student Phone Number"/>
+					<sf:errors path="phone" cssClass="text-danger"></sf:errors>
 				</div>
 				
 				<div class="col">
 					<sf:label path="email">Student Email</sf:label>
 					<sf:input path="email" type="email" cssClass="form-control" placeholder="Enter Student Email"/>
+					<sf:errors path="email" cssClass="text-danger"></sf:errors>
 				</div>
 			</div>
 			
@@ -68,6 +71,7 @@
 						<sf:option value="">Select Course</sf:option>
 						<sf:options items="${courses}" itemValue="id" itemLabel="name"></sf:options>
 					</sf:select>
+					<sf:errors path="course" cssClass="text-danger"></sf:errors>
 				</div>
 				
 				<div class="col">

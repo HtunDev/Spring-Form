@@ -1,11 +1,13 @@
-package com.HAH.form.controller;
+package com.HAH.form.mvc.controller;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.support.ConfigurableConversionService;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.DataBinder;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -13,12 +15,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.HAH.form.converter.CourseSelectConverter;
-import com.HAH.form.model.dto.Course;
-import com.HAH.form.model.dto.UserInput;
-import com.HAH.form.model.dto.UserInput.Gender;
-import com.HAH.form.model.service.CourseRepo;
-import com.HAH.form.model.service.DataHolder;
+import com.HAH.form.mvc.converter.CourseSelectConverter;
+import com.HAH.form.mvc.validator.UserInputValidator;
+import com.HAH.form.root.dto.Course;
+import com.HAH.form.root.dto.UserInput;
+import com.HAH.form.root.dto.UserInput.Gender;
+import com.HAH.form.root.service.CourseRepo;
+import com.HAH.form.root.service.DataHolder;
 
 @Controller
 @RequestMapping("form")
@@ -32,6 +35,9 @@ public class FormController {
 	
 	@Autowired
 	private CourseSelectConverter converter;
+	
+	@Autowired
+	UserInputValidator userInputValidator;
 
 	@GetMapping
 	void index() {
@@ -46,10 +52,16 @@ public class FormController {
 			System.out.println("Converter Registration");
 		}
 		
+		binder.addValidators(userInputValidator);
+		
 	}
 	
 	@PostMapping
-	String create(@ModelAttribute("userInput") UserInput userInput) {
+	String create(@Validated @ModelAttribute("userInput") UserInput userInput, BindingResult result) {
+		
+		if(result.hasErrors()) {
+			return "form";
+		}
 		dataHolder.add(userInput);
 		return "redirect:/form";
 	}

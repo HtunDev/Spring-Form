@@ -1,4 +1,4 @@
-package com.HAH.form.model.dto;
+package com.HAH.form.root.dto;
 
 import lombok.Data;
 import lombok.NonNull;
