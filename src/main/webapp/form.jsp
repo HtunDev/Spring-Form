@@ -34,8 +34,14 @@
 	<div class="container pt-4">
 
 		<h3>Spring Form</h3>
-
+		
 		<sf:form modelAttribute="userInput">
+		
+		<c:if test="${hasErrors}">Errors
+			<div class="alert alert-warning">
+				<sf:errors path="*"></sf:errors>
+			</div>
+		</c:if>
 		
 		<sf:hidden path="id"/>
 

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.support.ConfigurableConversionService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.DataBinder;
 import org.springframework.validation.annotation.Validated;
@@ -57,9 +58,10 @@ public class FormController {
 	}
 	
 	@PostMapping
-	String create(@Validated @ModelAttribute("userInput") UserInput userInput, BindingResult result) {
+	String create(@Validated @ModelAttribute("userInput") UserInput userInput, BindingResult result,ModelMap model) {
 		
 		if(result.hasErrors()) {
+			model.put("hasErrors", true);
 			return "form";
 		}
 		dataHolder.add(userInput);
