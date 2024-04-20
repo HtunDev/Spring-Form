@@ -39,7 +39,7 @@
 		
 			<div class="alert alert-warning">
 				
-				<c:forEach var="errors" items="${allErrors }" varStatus="status">
+				<c:forEach var="errors" items="${allErrors}" varStatus="status">
 				
 					<span>${errors}</span>
 					

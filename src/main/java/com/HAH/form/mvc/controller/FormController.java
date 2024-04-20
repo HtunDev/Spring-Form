@@ -27,54 +27,54 @@ import com.HAH.form.root.service.DataHolder;
 @Controller
 @RequestMapping("form")
 public class FormController {
-	
+
 	@Autowired
 	private DataHolder dataHolder;
-	
+
 	@Autowired
 	private CourseRepo courseRepo;
-	
+
 	@Autowired
 	private CourseSelectConverter converter;
-	
+
 	@Autowired
 	UserInputValidator userInputValidator;
 
 	@GetMapping
 	void index() {
-		
+
 	}
-	
+
 	@InitBinder
 	void initWebBinder(WebDataBinder binder) {
-		
-		if(binder.getConversionService() instanceof ConfigurableConversionService registry) {
+
+		if (binder.getConversionService() instanceof ConfigurableConversionService registry) {
 			registry.addConverter(converter);
 //			System.out.println("Converter Registration");
 		}
-		
+
 		binder.addValidators(userInputValidator);
-		
+
 	}
-	
+
 	@PostMapping
 	String create(@Validated @ModelAttribute("userInput") UserInput userInput, BindingResult result) {
-		
-		if(result.hasErrors()) {
-			
+
+		if (result.hasErrors()) {
+
 			return "form";
 		}
 		dataHolder.add(userInput);
 		return "redirect:/form";
 	}
-	
+
 	@ModelAttribute("lists")
-	List<UserInput> getAllUserInputs(){
+	List<UserInput> getAllUserInputs() {
 		return dataHolder.getAllData();
 	}
-	
+
 	@ModelAttribute("courses")
-	List<Course> getCourses(){
+	List<Course> getCourses() {
 		return courseRepo.getCourses();
 	}
 
