@@ -17,7 +17,7 @@ import lombok.Data;
 public class UserInput {
 
 	private int id;
-	@NotBlank(message = "Please Enter Name")
+	@NotBlank
 	private String name;
 	@Phone
 	private String phone;

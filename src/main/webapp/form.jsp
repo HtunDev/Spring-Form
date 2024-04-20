@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="st" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +34,7 @@
 
 	<div class="container pt-4">
 
-		<h3>Spring Form</h3>
+		<h3><st:message code="app.title"></st:message> </h3>
 		
 		<c:if test="${ not empty allErrors }">
 		
