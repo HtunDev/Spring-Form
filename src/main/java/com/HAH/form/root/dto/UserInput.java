@@ -17,7 +17,7 @@ import lombok.Data;
 public class UserInput {
 
 	private int id;
-	@NotBlank
+	@NotBlank(message = "{empty.student.name}")
 	private String name;
 	@Phone
 	private String phone;
