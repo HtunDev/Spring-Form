@@ -19,9 +19,9 @@ public class UserInput {
 	private int id;
 	@NotBlank(message = "{empty.student.name}")
 	private String name;
-	@Phone
+	@Phone(message = "Require Phone Number!")
 	private String phone;
-	@Email(message = "Invalid Email Address")
+	@Email
 	private String email;
 	private String password;
 	@NotNull(message = "Pls select course")

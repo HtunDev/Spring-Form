@@ -9,7 +9,7 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 	<!-- bean definitions here -->
-	<mvc:annotation-driven></mvc:annotation-driven>
+	<mvc:annotation-driven validator="localValidator"></mvc:annotation-driven>
 	<context:component-scan
 		base-package="com.HAH.form.mvc"></context:component-scan>
 
@@ -21,14 +21,21 @@
 	</mvc:view-resolvers>
 
 	<mvc:interceptors>
-	
-			<bean id="validationInterceptor" class="com.HAH.form.mvc.interceptor.ValidationErrorsInterceptor"></bean>
-	
+
+		<bean id="validationInterceptor"
+			class="com.HAH.form.mvc.interceptor.ValidationErrorsInterceptor"></bean>
+
 	</mvc:interceptors>
-	
-	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basename" value="classpath:messages"></property>
 		<property name="defaultEncoding" value="UTF-8"></property>
+	</bean>
+
+	<bean id="localValidator"
+		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property name="ValidationMessageSource" ref="messageSource"></property>
 	</bean>
 
 </beans>	

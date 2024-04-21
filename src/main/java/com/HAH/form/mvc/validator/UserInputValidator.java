@@ -23,7 +23,7 @@ public class UserInputValidator implements Validator {
 			if( !StringUtils.hasLength(input.getEmail()) && 
 					!StringUtils.hasLength(input.getPhone())) {
 				errors.rejectValue("email", "empty", "Enter Email if you don't have phone number");
-				errors.rejectValue("phone", "empty", "Enter Email if you don't have email address");
+				errors.rejectValue("phone", "empty", "Enter Phone No if you don't have email address");
 			}
 		}
 		
